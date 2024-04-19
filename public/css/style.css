@@ -254,6 +254,7 @@ img {
 
 .article {
   white-space: pre-wrap;
+  font-size: var(--font-size-lg); /* Sử dụng kích thước phông chữ lớn nhất */
 }
 
 

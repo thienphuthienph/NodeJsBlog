@@ -122,12 +122,21 @@ router.post('/search', async (req, res) => {
  * GET /
  * About
 */
-// router.get('/about', (req, res) => {
-//   res.render('about', {
-//     currentRoute: '/about'
-//   });
-// });
+router.get('/about', (req, res) => {
+  res.render('about', {
+    currentRoute: '/about'
+  });
+});
 
+/**
+ * GET /
+ *Contact
+*/
+router.get('/contact', (req, res) => {
+  res.render('contact', {
+    currentRoute: '/contact'
+  });
+});
 
 // function insertPostData () {
 //   Post.insertMany([

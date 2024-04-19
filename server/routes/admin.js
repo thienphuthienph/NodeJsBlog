@@ -10,6 +10,7 @@ const jwt = require('jsonwebtoken');
 const adminLayout = '../views/layouts/admin';
 const jwtSecret = process.env.JWT_SECRET;
 const app = express();
+
 app.use(express.json());
 /**
  * 
@@ -72,8 +73,10 @@ router.post('/admin', async (req, res) => {
 
     const token = jwt.sign({ userId: user._id}, jwtSecret );
     res.cookie('token', token, { httpOnly: true });
-    res.redirect('/dashboard');
 
+    res.redirect('/dashboard');
+    return res.status(200).json({ message: 'Login successful' });
+    
   } catch (error) {
     console.log(error);
   }
@@ -202,20 +205,6 @@ router.put('/edit-post/:id', authMiddleware, async (req, res) => {
 });
 
 
-// router.post('/admin', async (req, res) => {
-//   try {
-//     const { username, password } = req.body;
-    
-//     if(req.body.username === 'admin' && req.body.password === 'password') {
-//       res.send('You are logged in.')
-//     } else {
-//       res.send('Wrong username or password');
-//     }
-
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
 
 
 /**
